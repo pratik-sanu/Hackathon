@@ -21,7 +21,7 @@ namespace EchoBot3.Bots
 
         protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
         {
-            var welcomeText = "Hi I am Jarvis !! What Can I do for you !";
+            var welcomeText = "Hi I am Jarvis The Bot !! What Can I do for you !";
             foreach (var member in membersAdded)
             {
                 if (member.Id != turnContext.Activity.Recipient.Id)
