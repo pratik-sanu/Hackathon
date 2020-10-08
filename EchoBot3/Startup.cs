@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 //
 // Generated with Bot Builder V4 SDK Template for Visual Studio EchoBot v4.10.3
-
+using Microsoft.Bot.Builder.AI.QnA;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +34,13 @@ namespace EchoBot3
 
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
             services.AddTransient<IBot, EchoBot>();
+            // Create QnAMaker endpoint as a singleton
+            services.AddSingleton(new QnAMakerEndpoint
+            {
+             KnowledgeBaseId = Configuration.GetValue<string>($"QnAKnowledgebaseId"),
+             EndpointKey = Configuration.GetValue<string>($"QnAAuthKey"),
+             Host = Configuration.GetValue<string>($"QnAEndpointHostName")
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
