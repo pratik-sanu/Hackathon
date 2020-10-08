@@ -8,6 +8,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
+using System.Linq;
+using Microsoft.Bot.Builder.AI.QnA;
 
 namespace EchoBot3.Bots
 {
