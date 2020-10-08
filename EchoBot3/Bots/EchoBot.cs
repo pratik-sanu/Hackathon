@@ -16,9 +16,9 @@ namespace EchoBot3.Bots
     public class EchoBot : ActivityHandler
     {
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
-        { await turnContext.SendActivityAsync(MessageFactory.Text($"Echo: {turnContext.Activity.Text}"), cancellationToken);
-
-   await AccessQnAMaker(turnContext, cancellationToken);
+        { 
+           await turnContext.SendActivityAsync(MessageFactory.Text($"Echo: {turnContext.Activity.Text}"), cancellationToken);
+           await AccessQnAMaker(turnContext, cancellationToken);
         }
         public QnAMaker EchoBotQnA { get; private set; }
             public EchoBot(QnAMakerEndpoint endpoint)
